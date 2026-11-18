@@ -1,0 +1,1074 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap");
+
+/* ===================================================
+   VARIABLES & THEME
+   Harmonized with Home, About, Contact & Navbar
+   =================================================== */
+:root {
+  --f-navy: #0e1846;
+  --f-ink: #14224f;
+  --f-blue: rgba(255, 255, 255, 0.8);
+  --f-blue-dark: rgba(255, 255, 255, 0.6);
+  --f-blue-light: rgba(255, 255, 255, 0.5);
+  --f-muted: #475569;
+  --f-slate: #64748b;
+  --f-border: #e2e8f0;
+  --f-border-light: #f1f5f9;
+  --f-bg: #f8fafc;
+  --f-bg-soft: #f1f5f9;
+  --f-yellow: #facc15;
+  --f-orange: #ff8738;
+}
+
+.features-page {
+  width: 100%;
+  color: var(--f-ink);
+  font-family: "Figtree", system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  background-color: var(--f-bg);
+}
+
+.features-page *,
+.features-page *::before,
+.features-page *::after {
+  box-sizing: border-box;
+}
+
+/* ===================================================
+   1. HERO SECTION (Light, Modern, Trustworthy)
+   =================================================== */
+.f-hero {
+  position: relative;
+  padding: 140px 24px 80px;
+  background: linear-gradient(180deg, #edf4fe 0%, #f8fafd 55%, #ffffff 100%);
+  text-align: center;
+  overflow: hidden;
+}
+
+/* ---- Background-image variant ---- */
+.f-hero--with-bg {
+  background: none;
+  min-height: 580px;
+}
+
+/* Full-bleed background image layer */
+.f-hero__bg-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.f-hero__bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+/* Blue wash overlay (matches the Home hero) — keeps white text legible */
+.f-hero__bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    rgba(14, 24, 70, 0.70) 0%,
+    rgba(31, 99, 209, 0.60) 55%,
+    rgba(14, 24, 70, 0.72) 100%
+  );
+}
+
+/* Subtle blue radial mesh shimmer on top */
+.f-hero__bg-mesh {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 60% 30%, rgba(37, 99, 235, 0.22) 0%, transparent 65%),
+              radial-gradient(ellipse at 20% 80%, rgba(14, 60, 180, 0.15) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+/* =====================================================
+   HERO (with background image) — white text, blue buttons
+   Scoped with .f-hero--with-bg so these always beat the
+   base .f-hero__* / .f-btn--* rules that appear further down.
+   ===================================================== */
+
+/* Badge */
+.f-hero--with-bg .f-hero__badge {
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.40);
+  color: #ffffff;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: none;
+}
+
+/* Title: bold first line, lighter second line — both white (like the Home hero) */
+.f-hero--with-bg .f-hero__title {
+  color: #ffffff;
+  font-weight: 700;
+  text-shadow: 0 2px 14px rgba(14, 24, 70, 0.35);
+}
+
+.f-hero--with-bg .f-hero__title-highlight--light {
+  color: #ffffff;
+  font-weight: 400;
+  text-shadow: none;
+}
+
+/* Sub-text */
+.f-hero--with-bg .f-hero__sub {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* Primary button — solid blue, same as "Book a free demo" on Home */
+.f-hero--with-bg .f-btn--primary {
+  background: #2f7df6;
+  color: #ffffff;
+  font-weight: 700;
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0 8px 22px rgba(47, 125, 246, 0.35);
+}
+
+.f-hero--with-bg .f-btn--primary:hover {
+  background: #1f63d1;
+  box-shadow: 0 12px 28px rgba(47, 125, 246, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Secondary button — white outline, same as "See why Qodo" on Home */
+.f-hero--with-bg .f-btn--white-ghost {
+  background: rgba(255, 255, 255, 0.12);
+  border: 2px solid rgba(255, 255, 255, 0.90);
+  color: #ffffff;
+  font-weight: 700;
+  border-radius: 12px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: none;
+}
+
+.f-hero--with-bg .f-btn--white-ghost:hover {
+  background: #ffffff;
+  border-color: #ffffff;
+  color: var(--f-navy);
+  transform: translateY(-2px);
+}
+
+.f-hero--with-bg .f-btn:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
+}
+
+/* Trust bar */
+.f-hero--with-bg .f-hero__trust {
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.30);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: none;
+}
+
+.f-hero--with-bg .f-hero__trust-item {
+  color: #ffffff;
+}
+
+.f-hero--with-bg .f-star {
+  color: #7dd3fc;
+}
+
+.f-hero--with-bg .f-hero__trust-divider {
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.f-hero__glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.f-hero__glow--1 {
+  width: 420px;
+  height: 420px;
+  background: rgba(37, 99, 235, 0.12);
+  top: -100px;
+  right: -80px;
+}
+
+.f-hero__glow--2 {
+  width: 360px;
+  height: 360px;
+  background: rgba(245, 165, 36, 0.1);
+  top: 15%;
+  left: -80px;
+}
+
+.f-hero__inner {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.f-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 8px 18px;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  margin-bottom: 22px;
+}
+
+.f-hero__badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
+}
+
+.f-hero__title {
+  margin: 0 0 20px;
+  font-family: "Bricolage Grotesque", "Figtree", sans-serif;
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  color: var(--f-navy);
+}
+
+.f-hero__title-highlight {
+  color: rgba(0, 0, 0, 0.5);
+  /* replaced blue gradient with subtle shadow */
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.f-hero__sub {
+  max-width: 680px;
+  margin: 0 auto 36px;
+  font-size: 1.18rem;
+  line-height: 1.65;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.f-hero__actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.f-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.f-btn svg {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.2s ease;
+}
+
+.f-btn:hover svg {
+  transform: translateX(3px);
+}
+
+.f-btn--primary {
+  background: rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.f-btn--primary:hover {
+  background: rgba(0, 0, 0, 0.4);
+  border-color: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+.f-btn--outline {
+  background: #ffffff;
+  color: var(--f-ink);
+  border: 1.5px solid var(--f-border);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+}
+
+.f-btn--outline:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.9);
+  background: var(--f-blue-light);
+  transform: translateY(-2px);
+}
+
+.f-btn--large {
+  padding: 16px 36px;
+  font-size: 1.08rem;
+}
+
+.f-hero__trust {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.f-hero__trust-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.f-hero__trust-item svg {
+  width: 18px;
+  height: 18px;
+}
+
+.f-hero__trust-divider {
+  width: 1px;
+  height: 16px;
+  background: var(--f-border);
+}
+
+.f-star {
+  color: var(--f-yellow);
+  font-size: 1.05rem;
+}
+
+/* ===================================================
+   SECTION HEADERS
+   =================================================== */
+.f-section-head {
+  max-width: 680px;
+  margin: 0 auto 52px;
+  text-align: center;
+}
+
+.f-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #2f7df6; /* same blue as the Home "Book a free demo" button */
+}
+
+.f-kicker::before {
+  content: "";
+  width: 26px;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--f-orange);
+}
+
+.f-section-title {
+  margin: 0 0 14px;
+  font-family: "Bricolage Grotesque", "Figtree", sans-serif;
+  font-size: clamp(2rem, 3.8vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--f-navy);
+}
+
+.f-section-sub {
+  margin: 0;
+  font-size: 1.06rem;
+  line-height: 1.65;
+  color: var(--f-muted);
+}
+
+/* ===================================================
+   2. CIRCULAR ORBIT CAROUSEL (Colored Background)
+   =================================================== */
+.f-orbit-section {
+  padding: 96px 24px 110px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #f0f7ff 0%, #e2eeff 45%, #f4f8fe 100%);
+}
+
+/* Atmospheric ambient radial mesh glows */
+.f-orbit-section::before {
+  content: "";
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(850px, 92vw);
+  height: min(850px, 92vw);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(37, 99, 235, 0.12) 0%,
+    rgba(59, 130, 246, 0.05) 50%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.f-orbit-section::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1240px;
+  height: 280px;
+  background: radial-gradient(
+    ellipse at 50% 100%,
+    rgba(2, 132, 199, 0.09) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.f-orbit {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  aspect-ratio: 1 / 1;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+/* Orbital circular dashed track */
+.f-orbit__track {
+  display: block;
+  position: absolute;
+  width: 78%;
+  height: 78%;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(37, 99, 235, 0.25);
+  box-shadow: 0 0 28px rgba(37, 99, 235, 0.08);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Luminous Ambient Glow behind the Orbit */
+.f-orbit__ambient-glow {
+  display: block;
+  position: absolute;
+  inset: 10%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(37, 99, 235, 0.18) 0%,
+    rgba(147, 197, 253, 0.1) 45%,
+    transparent 70%
+  );
+  filter: blur(36px);
+  pointer-events: none;
+  z-index: 1;
+  animation: orbitPulse 6s ease-in-out infinite alternate;
+}
+
+.f-orbit__ambient-glow--warm {
+  display: block;
+  background: radial-gradient(
+    circle,
+    rgba(251, 146, 60, 0.16) 0%,
+    rgba(253, 186, 116, 0.08) 45%,
+    transparent 70%
+  );
+}
+
+@keyframes orbitPulse {
+  0% {
+    transform: scale(0.94);
+    opacity: 0.75;
+  }
+  100% {
+    transform: scale(1.06);
+    opacity: 1;
+  }
+}
+
+/* Rotating Ring */
+.f-orbit__ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
+  z-index: 2;
+}
+
+/* Nodes along the perimeter */
+.f-orbit__node {
+  position: absolute;
+  width: 82px;
+  height: 82px;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  z-index: 3;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.f-orbit__node-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.f-orbit__node-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  border: 3px solid #ffffff;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.12);
+  filter: grayscale(100%) contrast(85%);
+  opacity: 0.72;
+  transition: filter 0.35s ease, opacity 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease;
+  display: block;
+}
+
+.f-orbit__node:hover .f-orbit__node-img {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.08);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.2);
+}
+
+/* Active node (Top focal position) */
+.f-orbit__node.is-active {
+  z-index: 10;
+}
+
+.f-orbit__node.is-active .f-orbit__node-img {
+  filter: none;
+  opacity: 1;
+  transform: scale(1.18);
+  border-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.3), 0 0 0 3.5px rgba(255, 255, 255, 0.2);
+}
+
+/* Active Yellow Badge (Centered at top of active node) */
+.f-orbit__badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 12;
+  background: var(--f-yellow);
+  color: #0f172a;
+  padding: 3px 9px;
+  border-radius: 9999px;
+  font-size: 0.76rem;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  box-shadow: 0 4px 10px rgba(250, 204, 21, 0.35);
+  pointer-events: none;
+  border: 2px solid #ffffff;
+  white-space: nowrap;
+}
+
+.f-orbit__badge-star {
+  font-size: 0.82rem;
+  color: #0f172a;
+  line-height: 1;
+}
+
+.f-orbit__badge-text {
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+
+/* ===================================================
+   CENTER CONTENT (Clean, Boxless - Matches Reference)
+   =================================================== */
+.f-orbit__center {
+  position: absolute;
+  z-index: 6;
+  width: min(440px, 76%);
+  max-width: 440px;
+  text-align: center;
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.f-orbit__center-content {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.f-orbit__center-title {
+  margin: 0 0 14px;
+  font-family: "Figtree", system-ui, -apple-system, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #64748b;
+  letter-spacing: -0.01em;
+}
+
+.f-orbit__center-quote {
+  margin: 0 0 22px;
+  font-family: "Figtree", system-ui, -apple-system, sans-serif;
+  font-size: clamp(1.28rem, 2.3vw, 1.62rem);
+  font-weight: 500;
+  line-height: 1.42;
+  color: #1e293b;
+  quotes: "\201C" "\201D";
+  letter-spacing: -0.015em;
+}
+
+/* ===================================================
+   NAVIGATION ARROWS (Clean Minimalist Arrows)
+   =================================================== */
+.f-orbit__nav {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  margin-top: 4px;
+}
+
+.f-orbit__nav-arrow {
+  background: transparent;
+  border: none;
+  padding: 8px 12px;
+  color: #1e293b;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 8px;
+}
+
+.f-orbit__nav-arrow svg {
+  width: 26px;
+  height: 26px;
+  stroke: #1e293b;
+  transition: transform 0.2s ease, stroke 0.2s ease;
+}
+
+.f-orbit__nav-arrow:hover svg {
+  stroke: rgba(0, 0, 0, 0.6);
+  transform: scale(1.18);
+}
+
+.f-orbit__nav-arrow:active svg {
+  transform: scale(0.92);
+}
+
+/* ===================================================
+   3. ALL FEATURES GRID (Comprehensive Cards)
+   =================================================== */
+.f-grid-section {
+  padding: 96px 24px;
+  background: var(--f-bg-soft);
+  border-top: 1px solid var(--f-border);
+  border-bottom: 1px solid var(--f-border);
+}
+
+.f-cards-grid {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.f-card {
+  background: #ffffff;
+  border: 1px solid var(--f-border);
+  border-radius: 20px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+}
+
+.f-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0, 0, 0, 0.2);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.09);
+}
+
+.f-card--highlighted {
+  border-color: rgba(0, 0, 0, 0.2);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+}
+
+.f-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.f-card__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.f-card:hover .f-card__icon {
+  transform: scale(1.1);
+}
+
+.f-card__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.f-card__number {
+  font-family: "Bricolage Grotesque", "Figtree", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #94a3b8;
+}
+
+.f-card__title {
+  margin: 0 0 10px;
+  font-family: "Bricolage Grotesque", "Figtree", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--f-navy);
+}
+
+.f-card__desc {
+  margin: 0 0 18px;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--f-muted);
+  flex-grow: 1;
+}
+
+.f-card__list {
+  margin: 0 0 20px;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--f-border-light);
+  padding-top: 14px;
+}
+
+.f-card__list-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--f-slate);
+  margin-bottom: 8px;
+}
+
+.f-card__list-item:last-child {
+  margin-bottom: 0;
+}
+
+.f-card__list-item svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.f-card__action {
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: var(--accent, var(--f-blue));
+  font-size: 0.88rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  margin-top: auto;
+  transition: gap 0.2s ease;
+}
+
+.f-card__action svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s ease;
+}
+
+.f-card:hover .f-card__action svg {
+  transform: translateX(4px);
+}
+
+/* ===================================================
+   5. CALL TO ACTION (CTA) SECTION
+   =================================================== */
+.f-cta {
+  padding: 100px 24px;
+  background: linear-gradient(135deg, #0e1846 0%, #172a6b 60%, #1e3a8a 100%);
+  color: #ffffff;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.f-cta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 100%, rgba(59, 130, 246, 0.25) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.f-cta__inner {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.f-cta__badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.12);
+  color: #93c5fd;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 6px 16px;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.f-cta__title {
+  margin: 0 0 18px;
+  font-family: "Bricolage Grotesque", "Figtree", sans-serif;
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.f-cta__sub {
+  margin: 0 auto 36px;
+  font-size: 1.15rem;
+  line-height: 1.65;
+  color: #cbd5e1;
+  max-width: 620px;
+}
+
+.f-cta__buttons {
+  display: flex;
+  justify-content: center;
+}
+
+/* ===================================================
+   ANIMATIONS & KEYFRAMES
+   =================================================== */
+.anim-pop {
+  animation: badgePop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes badgePop {
+  0% {
+    opacity: 0;
+    transform: scale(0.6) translateY(4px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.anim-fade {
+  animation: centerFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes centerFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===================================================
+   RESPONSIVE BREAKPOINTS
+   =================================================== */
+@media (max-width: 1200px) {
+  .f-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 820px) {
+  .f-hero {
+    padding: 120px 20px 60px;
+  }
+
+  .f-orbit {
+    max-width: 560px;
+  }
+
+  .f-orbit__node {
+    width: 66px;
+    height: 66px;
+  }
+
+  .f-orbit--testimonials .f-orbit__node--avatar {
+    width: 66px;
+    height: 66px;
+  }
+
+  .f-orbit__center {
+    width: min(340px, 76%);
+  }
+
+  .f-orbit__center-title {
+    font-size: 1.05rem;
+    margin-bottom: 12px;
+  }
+
+  .f-orbit__center-quote {
+    font-size: 1.15rem;
+    line-height: 1.4;
+    margin-bottom: 18px;
+  }
+
+  .f-orbit__nav-arrow svg {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+@media (max-width: 640px) {
+  .f-hero {
+    padding: 110px 16px 50px;
+  }
+
+  .f-hero__trust {
+    border-radius: 16px;
+    gap: 12px;
+  }
+
+  .f-hero__trust-divider {
+    display: none;
+  }
+
+  .f-orbit-section {
+    padding: 60px 16px 80px;
+  }
+
+  .f-orbit {
+    max-width: 380px;
+  }
+
+  .f-orbit__node {
+    width: 48px;
+    height: 48px;
+  }
+
+  .f-orbit--testimonials .f-orbit__node--avatar {
+    width: 48px;
+    height: 48px;
+  }
+
+  .f-orbit__badge {
+    top: -10px;
+    font-size: 0.7rem;
+    padding: 2px 7px;
+  }
+
+  .f-orbit__center {
+    width: min(240px, 74%);
+  }
+
+  .f-orbit__center-title {
+    font-size: 0.92rem;
+    margin-bottom: 8px;
+  }
+
+  .f-orbit__center-quote {
+    font-size: 0.95rem;
+    line-height: 1.36;
+    margin-bottom: 14px;
+  }
+
+  .f-orbit__nav {
+    gap: 16px;
+  }
+
+  .f-orbit__nav-arrow {
+    padding: 6px 8px;
+  }
+
+  .f-orbit__nav-arrow svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .f-cta {
+    padding: 70px 20px;
+  }
+}

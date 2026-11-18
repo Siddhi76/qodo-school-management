@@ -1,0 +1,430 @@
+/* =====================================================================
+   FeaturesGrid.css — Comprehensive Features Grid with Pagination & Categories
+   ===================================================================== */
+
+.fg-section {
+  padding: 96px 24px 110px;
+  background: #fbfcfe;
+  position: relative;
+  font-family: "Figtree", system-ui, sans-serif;
+  color: #14224f;
+}
+
+.fg-container {
+  max-width: 1220px;
+  margin: 0 auto;
+}
+
+.fg-head {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 52px;
+}
+
+.fg-kicker {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 6px 18px;
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.08);
+  color: #2563eb;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid rgba(37, 99, 235, 0.2);
+}
+
+.fg-title {
+  font-family: "Bricolage Grotesque", "Figtree", sans-serif;
+  font-size: clamp(2.1rem, 4vw, 3rem);
+  font-weight: 800;
+  color: #0e1846;
+  margin: 0 0 16px;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+}
+
+.fg-sub {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: #556987;
+  margin: 0;
+}
+
+/* Category Filter Tabs */
+.fg-categories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.fg-cat-btn {
+  padding: 9px 20px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 1.5px solid #e2e8f0;
+  background: #ffffff;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.fg-cat-btn:hover {
+  border-color: #2563eb;
+  color: #2563eb;
+}
+
+.fg-cat-btn.is-active {
+  background: #2563eb;
+  color: #ffffff;
+  border-color: #2563eb;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+}
+
+/* Grid Layout — show all cards, no pagination */
+.fg-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 32px;
+  margin-bottom: 50px;
+}
+
+/* Feature Card */
+.fg-card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1.5px solid #edf2f7;
+  overflow: hidden;
+  box-shadow: 0 8px 24px -4px rgba(14, 24, 70, 0.06);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.fg-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent, #2563eb);
+  box-shadow: 0 20px 40px -8px rgba(14, 24, 70, 0.12);
+}
+
+/* Card Media Header */
+.fg-card__media {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background: #0e1846;
+}
+
+.fg-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.fg-card:hover .fg-card__img {
+  transform: scale(1.06);
+}
+
+.fg-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(14, 24, 70, 0.15) 0%, rgba(14, 24, 70, 0.6) 100%);
+}
+
+.fg-card__cat-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 5px 12px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #0e1846;
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.fg-card__rating {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 4px 10px;
+  background: #f59e0b;
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 800;
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.35);
+}
+
+/* Card Body */
+.fg-card__body {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.fg-card__number-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.fg-card__number {
+  font-family: monospace, sans-serif;
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: var(--accent, #2563eb);
+}
+
+.fg-card__dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #cbd5e1;
+}
+
+.fg-card__module-tag {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.fg-card__title {
+  margin: 0 0 10px;
+  font-family: "Bricolage Grotesque", "Figtree", sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.fg-card__title-link {
+  color: #0e1846;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.fg-card__title-link:hover {
+  color: var(--accent, #2563eb);
+}
+
+.fg-card__desc {
+  font-size: 0.94rem;
+  color: #556987;
+  line-height: 1.6;
+  margin: 0 0 18px;
+  flex-grow: 1;
+}
+
+/* Highlights List */
+.fg-card__highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 22px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 12px;
+}
+
+.fg-card__highlight-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.84rem;
+  color: #334155;
+  font-weight: 500;
+}
+
+.fg-check-icon {
+  color: var(--accent, #2563eb);
+  flex-shrink: 0;
+}
+
+/* Card Footer Actions */
+.fg-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 18px;
+  border-top: 1px solid #f1f5f9;
+  margin-top: auto;
+}
+
+.fg-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #2563eb;
+  text-decoration: none;
+  transition: gap 0.2s ease, color 0.2s ease;
+}
+
+.fg-card__link:hover {
+  color: #1d4ed8;
+  gap: 12px;
+}
+
+.fg-card__link .fg-arrow {
+  transition: transform 0.2s ease;
+}
+
+.fg-card__link:hover .fg-arrow {
+  transform: translateX(4px);
+}
+
+.fg-card__demo-link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #64748b;
+  text-decoration: none;
+  padding: 5px 12px;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+  transition: all 0.2s ease;
+}
+
+.fg-card__demo-link:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  color: #0e1846;
+}
+
+/* Pagination Controls ("Pages") */
+.fg-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 60px;
+}
+
+.fg-page-numbers {
+  display: flex;
+  gap: 8px;
+}
+
+.fg-page-btn {
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  border: 1.5px solid #e2e8f0;
+  background: #ffffff;
+  color: #0e1846;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.fg-page-btn:hover:not(:disabled) {
+  border-color: #2563eb;
+  color: #2563eb;
+}
+
+.fg-page-btn.is-active {
+  background: #0e1846;
+  color: #ffffff;
+  border-color: #0e1846;
+  box-shadow: 0 4px 12px rgba(14, 24, 70, 0.2);
+}
+
+.fg-page-btn--nav {
+  padding: 10px 18px;
+  color: #475569;
+}
+
+.fg-page-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* CTA Bottom Banner */
+.fg-cta-banner {
+  background: linear-gradient(135deg, #0e1846 0%, #1e3a8a 100%);
+  border-radius: 22px;
+  padding: 40px 36px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  box-shadow: 0 16px 36px -8px rgba(14, 24, 70, 0.25);
+}
+
+.fg-cta-content h3 {
+  font-family: "Bricolage Grotesque", "Figtree", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 6px;
+}
+
+.fg-cta-content p {
+  font-size: 0.98rem;
+  color: #cbd5e1;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.fg-cta-btn {
+  display: inline-block;
+  white-space: nowrap;
+  padding: 14px 28px;
+  border-radius: 12px;
+  background: #2563eb;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
+}
+
+.fg-cta-btn:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .fg-grid {
+    grid-template-columns: 1fr;
+    max-width: 580px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .fg-cta-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 32px 24px;
+  }
+}
+
+@media (max-width: 580px) {
+  .fg-card__highlights {
+    grid-template-columns: 1fr;
+  }
+  
+  .fg-page-btn {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+  }
+}
